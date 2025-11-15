@@ -110,6 +110,7 @@ resource "aws_instance" "lb" {
   subnet_id                   = aws_subnet.public_subnet.id
   vpc_security_group_ids      = [aws_security_group.lb_sg.id]
   key_name                    = var.key_name
+  iam_instance_profile        = var.iam_instance_profile
   user_data_replace_on_change = true
 
   tags = merge(var.common_tags, {

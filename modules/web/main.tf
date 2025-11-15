@@ -117,6 +117,10 @@ resource "aws_iam_instance_profile" "photosaver_profile" {
   name = "photosaver_profile_${var.env}"
   role = aws_iam_role.photosaver_role.name
 }
+resource "aws_iam_role_policy_attachment" "ssm_core" {
+  role       = aws_iam_role.photosaver_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+}
 
 resource "aws_instance" "web" {
   ami                         = var.ami

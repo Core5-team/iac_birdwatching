@@ -110,6 +110,7 @@ resource "aws_instance" "db" {
   subnet_id                   = aws_subnet.db_subnet.id
   vpc_security_group_ids      = [aws_security_group.db_sg.id]
   key_name                    = var.key_pair
+  iam_instance_profile        = var.iam_instance_profile
   user_data_replace_on_change = true
 
   tags = merge(

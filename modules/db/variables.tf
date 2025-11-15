@@ -47,4 +47,8 @@ variable "common_tags" {
   default     = {}
   description = "Common tags applied to all resources"
 }
-
+variable "iam_instance_profile" {
+  type        = string
+  description = "IAM instance profile for DB server (optional)"
+  default     = null
+}

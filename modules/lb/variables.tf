@@ -54,3 +54,8 @@ variable "common_tags" {
   default = {}
 }
 
+variable "iam_instance_profile" {
+  type        = string
+  description = "IAM instance profile for LB server (optional)"
+  default     = null
+}
