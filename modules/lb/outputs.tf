@@ -28,6 +28,6 @@ output "dns_record_name" {
   description = "Fully qualified DNS name"
 }
 
-output "nat_gateway_id" {
-  value = aws_nat_gateway.nat.id
-}
+# output "nat_gateway_id" {
+#   value = aws_nat_gateway.nat.id
+# }
