@@ -59,3 +59,9 @@ variable "iam_instance_profile" {
   description = "IAM instance profile for LB server (optional)"
   default     = null
 }
+
+variable "public_rt_id" {
+  type        = string
+  description = "Use existing Public Route Table ID "
+  default     = null
+}
