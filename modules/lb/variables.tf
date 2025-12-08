@@ -63,5 +63,4 @@ variable "iam_instance_profile" {
 variable "public_rt_id" {
   type        = string
   description = "Use existing Public Route Table ID "
-  default     = null
 }
