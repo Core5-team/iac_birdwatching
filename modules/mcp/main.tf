@@ -106,6 +106,31 @@ resource "aws_security_group" "mcp_sg" {
     { Name = "mcp_sg_${var.env}" }
   )
 }
+resource "aws_iam_role" "ssm_role" {
+  name = "EC2-SSM-Role"
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [{
+      Effect = "Allow"
+      Principal = {
+        Service = "ec2.amazonaws.com"
+      }
+      Action = "sts:AssumeRole"
+    }]
+  })
+}
+
+resource "aws_iam_role_policy_attachment" "ssm_core" {
+  role       = aws_iam_role.ssm_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+}
+
+resource "aws_iam_instance_profile" "ssm_instance_profile" {
+  name = "EC2-SSM-Instance-Profile"
+  role = aws_iam_role.ssm_role.name
+}
+
 
 resource "aws_instance" "mcp" {
   ami                         = var.ami
@@ -113,7 +138,7 @@ resource "aws_instance" "mcp" {
   subnet_id                   = aws_subnet.mcp_subnet.id
   vpc_security_group_ids      = [aws_security_group.mcp_sg.id]
   key_name                    = null
-  iam_instance_profile        = var.iam_instance_profile
+  iam_instance_profile        = aws_iam_instance_profile.ssm_instance_profile.name
   user_data_replace_on_change = true
 
   tags = merge(
