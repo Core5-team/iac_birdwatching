@@ -66,3 +66,12 @@ variable "db" {
   })
 }
 
+variable "lambda" {
+  type = object({
+    unsplash_key       = string
+    birdwatch_url      = string
+    mail_service       = string
+    illuminati_backend = string
+    zip_file_path      = string
+  })
+}
