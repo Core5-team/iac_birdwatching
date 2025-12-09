@@ -23,7 +23,7 @@ variable "availability_zone" {
 variable "env" {
   description = "Environment name (dev/stage/prod)"
   type        = string
-  default     = "stage"
+  default     = "stage_01"
 }
 
 variable "common_tags" {

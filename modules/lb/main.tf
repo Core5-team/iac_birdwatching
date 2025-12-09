@@ -26,24 +26,10 @@ resource "aws_eip" "nat_eip" {
   })
 }
 
-resource "aws_nat_gateway" "nat" {
-  allocation_id = aws_eip.nat_eip.id
-  subnet_id     = aws_subnet.public_subnet.id
-}
-
-resource "aws_route_table" "public_rt" {
-  vpc_id = var.vpc_id
-}
-
-resource "aws_route" "public_inet_route" {
-  route_table_id         = aws_route_table.public_rt.id
-  destination_cidr_block = "0.0.0.0/0"
-  gateway_id             = var.igw_id
-}
 
 resource "aws_route_table_association" "public_assoc" {
   subnet_id      = aws_subnet.public_subnet.id
-  route_table_id = aws_route_table.public_rt.id
+  route_table_id = var.public_rt_id
 }
 
 resource "aws_security_group" "lb_sg" {
