@@ -37,7 +37,7 @@ resource "aws_ebs_volume" "mcp_volume" {
 
   tags = merge(
     var.common_tags,
-    { Name = "db_volume_${var.env}" }
+    { Name = "mcp_volume_${var.env}" }
   )
 }
 
@@ -103,7 +103,7 @@ resource "aws_security_group" "mcp_sg" {
 
   tags = merge(
     var.common_tags,
-    { Name = "db_sg_${var.env}" }
+    { Name = "mcp_sg_${var.env}" }
   )
 }
 
@@ -112,13 +112,13 @@ resource "aws_instance" "mcp" {
   instance_type               = var.instance_type
   subnet_id                   = aws_subnet.mcp_subnet.id
   vpc_security_group_ids      = [aws_security_group.mcp_sg.id]
-  key_name                    = var.key_pair
+  key_name                    = null
   iam_instance_profile        = var.iam_instance_profile
   user_data_replace_on_change = true
 
   tags = merge(
     var.common_tags,
-    { Name = "db_instance_${var.env}" }
+    { Name = "mcp_instance_${var.env}" }
   )
 }
 
