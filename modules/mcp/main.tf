@@ -122,9 +122,9 @@ resource "aws_instance" "mcp" {
   )
 }
 
-resource "aws_volume_attachment" "db_volume_attachment" {
+resource "aws_volume_attachment" "mcp_volume_attachment" {
   device_name = "/dev/sdh"
-  volume_id   = aws_ebs_volume.db_volume.id
-  instance_id = aws_instance.db.id
+  volume_id   = aws_ebs_volume.mcp_volume.id
+  instance_id = aws_instance.mcp.id
 }
 
