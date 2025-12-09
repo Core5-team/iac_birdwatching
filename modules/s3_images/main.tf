@@ -1,9 +1,9 @@
 resource "aws_s3_bucket" "images" {
-  bucket = "${var.project}-${var.env}-images"
+  bucket = "${var.project}-${replace(var.env, "_", "-")}-images"
 
   tags = merge(
     var.common_tags,
-    { Name = "${var.project}-${var.env}-images" }
+    { Name = "${var.project}-${replace(var.env, "_", "-")}-images" }
   )
 }
 
