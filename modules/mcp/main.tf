@@ -1,3 +1,6 @@
+terraform {
+  backend "s3" {}
+}
 resource "aws_subnet" "mcp_subnet" {
   vpc_id            = var.vpc_id
   cidr_block        = var.mcp_subnet_cidr
