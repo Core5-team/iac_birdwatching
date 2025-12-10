@@ -137,7 +137,7 @@ resource "aws_instance" "mcp" {
   instance_type               = var.instance_type
   subnet_id                   = aws_subnet.mcp_subnet.id
   vpc_security_group_ids      = [aws_security_group.mcp_sg.id]
-  key_name                    = null
+  
   iam_instance_profile        = aws_iam_instance_profile.ssm_instance_profile.name
   user_data_replace_on_change = true
 
