@@ -36,6 +36,9 @@ resource "aws_lambda_function" "bird_job" {
       BIRDWATCHING_URL       = var.birdwatch_url
       MAIL_SERVICE           = var.mail_service
       ILLUMINATI_BACKEND_URL = var.illuminati_backend
+      UNSPLASH_URL           = var.unsplash_url
+      EBIRD_API_KEY          = var.ebird_api_key
+      EBIRD_URL              = var.ebird_url
     }
   }
 }

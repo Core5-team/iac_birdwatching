@@ -73,5 +73,9 @@ variable "lambda" {
     mail_service       = string
     illuminati_backend = string
     zip_file_path      = string
+    unsplash_url       = string
+    ebird_api_key      = string
+    ebird_url          = string
   })
 }
+

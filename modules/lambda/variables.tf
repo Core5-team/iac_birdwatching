@@ -24,3 +24,18 @@ variable "zip_file_path" {
   type        = string
   description = "Path to the Lambda deployment package zip file"
 }
+
+variable "unsplash_url" {
+  type        = string
+  description = "URL for Unsplash API"
+}
+
+variable "ebird_api_key" {
+  type        = string
+  description = "API key for eBird service"
+}
+
+variable "ebird_url" {
+  type        = string
+  description = "URL for eBird API"
+}
