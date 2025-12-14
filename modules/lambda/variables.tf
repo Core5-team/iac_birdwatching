@@ -20,11 +20,6 @@ variable "illuminati_backend" {
   description = "URL for request to Illuminati backend service"
 }
 
-variable "zip_file_path" {
-  type        = string
-  description = "Path to the Lambda deployment package zip file"
-}
-
 variable "unsplash_url" {
   type        = string
   description = "URL for Unsplash API"
@@ -38,4 +33,14 @@ variable "ebird_api_key" {
 variable "ebird_url" {
   type        = string
   description = "URL for eBird API"
+}
+
+variable "zip_bucket_name" {
+  description = "S3 bucket name where Lambda zip files are stored"
+  type        = string
+}
+
+variable "zip_object_key" {
+  description = "S3 object key for the Lambda zip file"
+  type        = string
 }

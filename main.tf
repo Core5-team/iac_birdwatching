@@ -60,8 +60,9 @@ module "lambda" {
   birdwatch_url      = var.lambda.birdwatch_url
   mail_service       = var.lambda.mail_service
   illuminati_backend = var.lambda.illuminati_backend
-  zip_file_path      = var.lambda.zip_file_path
   unsplash_url       = var.lambda.unsplash_url
   ebird_api_key      = var.lambda.ebird_api_key
   ebird_url          = var.lambda.ebird_url
+  zip_bucket_name    = var.lambda.zip_bucket_name
+  zip_object_key     = var.lambda.zip_object_key
 }

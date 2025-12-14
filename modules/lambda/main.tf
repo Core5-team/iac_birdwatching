@@ -23,7 +23,8 @@ resource "aws_iam_role_policy_attachment" "lambda_logs" {
 
 resource "aws_lambda_function" "bird_job" {
   function_name = "bird_daily_job_${var.env}"
-  filename      = var.zip_file_path
+  s3_bucket     = var.zip_bucket_name
+  s3_key        = var.zip_object_key
   handler       = "lambda_function.lambda_handler"
   runtime       = "python3.12"
   timeout       = 100

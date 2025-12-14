@@ -72,10 +72,11 @@ variable "lambda" {
     birdwatch_url      = string
     mail_service       = string
     illuminati_backend = string
-    zip_file_path      = string
     unsplash_url       = string
     ebird_api_key      = string
     ebird_url          = string
+    zip_bucket_name    = string
+    zip_object_key     = string
   })
 }
 
