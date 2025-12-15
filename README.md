@@ -9,12 +9,12 @@ All components are fully parameterized via variables, making the setup environme
 
 The repository follows a modular layout, where each directory represents a standalone Terraform module:
 
-- ```modules/db``` – database infrastructure
-- ```modules/lb``` – load balancer and related networking
-- ```modules/web``` – web/application layer resources
-- ```modules/s3_images``` – S3 bucket for image storage
+- `modules/db` – database infrastructure
+- `modules/lb` – load balancer and related networking
+- `modules/web` – web/application layer resources
+- `modules/s3_images` – S3 bucket for image storage
 
-Root-level Terraform files (```main.tf```, ```providers.tf```, ```variables.tf```, ```outputs.tf```) expose these modules for composition when needed.
+Root-level Terraform files (`main.tf`, `providers.tf`, `variables.tf`, `outputs.tf`) expose these modules for composition when needed.
 
 ## Design Principles
 
@@ -28,13 +28,14 @@ Root-level Terraform files (```main.tf```, ```providers.tf```, ```variables.tf``
 This repository is **not meant to be applied directly** in most cases.
 
 #### Typical flow:
+
 1. A Terragrunt repository defines environments and state configuration
 2. Terragrunt calls modules from this repository
 3. Environment-specific values are injected via variables
 
 Terragrunt orchestration repository: https://github.com/Core5-team/iac-terragrunt
 
-Direct ```terraform apply``` is possible, but not the primary use case.
+Direct `terraform apply` is possible, but not the primary use case.
 
 ### Running Without Terragrunt
 
@@ -42,9 +43,9 @@ For local testing or standalone usage, this repository can be applied directly w
 
 From the repository root:
 
-```terraform init```
-```terraform plan```
-```terraform apply```
+`terraform init`
+`terraform plan`
+`terraform apply`
 
 All required values must be provided via a .tfvars file or default values in variables.tf.
 
