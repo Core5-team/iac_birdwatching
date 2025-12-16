@@ -47,9 +47,22 @@ module "db" {
 }
 
 module "images" {
-  source      = "./modules/s3-images"
+  source      = "./modules/s3_images"
   env         = var.env
   project     = "illuminati"
   common_tags = var.common_tags
 }
 
+module "lambda" {
+  source             = "./modules/lambda"
+  env                = var.env
+  unsplash_key       = var.lambda.unsplash_key
+  birdwatch_url      = var.lambda.birdwatch_url
+  mail_service       = var.lambda.mail_service
+  illuminati_backend = var.lambda.illuminati_backend
+  unsplash_url       = var.lambda.unsplash_url
+  ebird_api_key      = var.lambda.ebird_api_key
+  ebird_url          = var.lambda.ebird_url
+  zip_bucket_name    = var.lambda.zip_bucket_name
+  zip_object_key     = var.lambda.zip_object_key
+}
